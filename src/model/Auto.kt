@@ -5,6 +5,8 @@ enum class Auto {
     MOTO,
     CAMION;
 
+
+
     companion object {
         fun getAuto(valor: String): Auto {
             return entries.find { it.name.equals(valor, ignoreCase = true) } ?: COCHE
