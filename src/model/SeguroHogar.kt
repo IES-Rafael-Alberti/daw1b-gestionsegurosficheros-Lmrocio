@@ -1,5 +1,6 @@
 package model
 
+
 class SeguroHogar : Seguro {
 
     private val metrosCuadrados: Int
@@ -8,7 +9,7 @@ class SeguroHogar : Seguro {
     private val aniosConstruccion: Int
 
     companion object {
-        private var numPolizasHogar = 100000
+        var numPolizasHogar = 100000
         private fun generateId() = numPolizasHogar++
 
         fun crearSeguro(datos: List<String>): SeguroHogar {
@@ -26,6 +27,8 @@ class SeguroHogar : Seguro {
         val PORCENTAJE_INCREMENTO_ANIOS = 0.02
         val CICLO_ANIOS_INCREMENTO = 5
 
+
+
     }
 
     constructor(dniTitular: String, importe: Double, metrosCuadrados: Int, valorContenido: Double, direccion: String, aniosConstruccion: Int) :
@@ -42,6 +45,10 @@ class SeguroHogar : Seguro {
         this.valorContenido = valorContenido
         this.direccion = direccion
         this.aniosConstruccion = aniosConstruccion
+    }
+
+    fun getPoliza () : Int {
+        return numPolizasHogar
     }
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {

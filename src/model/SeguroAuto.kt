@@ -1,5 +1,6 @@
 package model
 
+
 class SeguroAuto : Seguro {
 
 
@@ -12,7 +13,7 @@ class SeguroAuto : Seguro {
 
 
     companion object {
-        private var numPolizasAuto = 400000
+        var numPolizasAuto = 400000
         private fun generateId() = numPolizasAuto++
 
         fun crearSeguro(datos: List<String>): SeguroAuto {
@@ -30,6 +31,10 @@ class SeguroAuto : Seguro {
         }
 
         val PORCENTAJE_INCREMENTO_PARTES = 2
+
+        fun getNumPoliza() : Int {
+            return numPolizasAuto
+        }
     }
 
     constructor(dniTitular: String, importe: Double, descripcion: String, combustible: String, tipoAuto: Auto, tipoCobertura: Cobertura, asistenciaCarretera: Boolean, numPartes: Int) :
@@ -51,6 +56,7 @@ class SeguroAuto : Seguro {
         this.asistenciaCarretera = asistenciaCarretera
         this.numPartes = numPartes
     }
+
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
         val interesResidual = numPartes * 0.02

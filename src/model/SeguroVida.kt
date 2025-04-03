@@ -11,7 +11,7 @@ class SeguroVida : Seguro {
 
 
     companion object {
-        private var numPolizasVida = 800000
+        var numPolizasVida = 800000
         private fun generateId() = numPolizasVida++
 
         fun crearSeguro(datos: List<String>): SeguroVida {
@@ -24,6 +24,11 @@ class SeguroVida : Seguro {
 
             return SeguroVida(numPoliza, dniTitular, importe, fechaNac, nivelRiesgo, indemnizacion)
         }
+
+        fun getNumPoliza() : Int {
+            return numPolizasVida
+        }
+
     }
 
     constructor(dniTitular: String, importe: Double, fechaNac: LocalDate, nivelRiesgo: Riesgo, indemnizacion: Double) :
@@ -39,6 +44,7 @@ class SeguroVida : Seguro {
         this.nivelRiesgo = nivelRiesgo
         this.indemnizacion = indemnizacion
     }
+
 
     override fun calcularImporteAnioSiguiente(interes: Double): Double {
         val anios = LocalDate.now().year - fechaNac.year
