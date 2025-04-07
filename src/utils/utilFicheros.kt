@@ -1,17 +1,27 @@
 package utils
 
-class utilFicheros {
-    companion object {
-        fun agregarLinea(rutaArchivo: String, serializar: String): Boolean {
+import model.IExportable
+import model.Usuario
 
-        }
-
-        fun leerArchivo(rutaArchivo: String): Any {
-
-        }
-
-        fun escribirArchivo(rutaArchivo: String, map: List<String>): Boolean {
-
-        }
+class utilFicheros : IUtilFicheros {
+    override fun leerArchivo(ruta: String): List<String> {
+        TODO("Not yet implemented")
     }
+
+    override fun agregarLinea(ruta: String, linea: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun <T : IExportable> escribirArchivo(ruta: String, elementos: List<T>): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun existeFichero(ruta: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun existeDirectorio(ruta: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
 }

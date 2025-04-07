@@ -16,14 +16,14 @@ class RepoSegurosFich(private val rutaArchivo: String,
         if (!super.agregar(seguro)) {
             return false
         }
-        return utilFicheros.agregarLinea(rutaArchivo, seguro.serializar())
+        return fich.agregarLinea(rutaArchivo, seguro.serializar())
     }
 
     override fun eliminar(seguro: Seguro): Boolean{
         if (!super.eliminar(seguro)) {
             return false
         }
-        return utilFicheros.escribirArchivo(rutaArchivo, obtenerTodos().map { it.serializar() })
+        return fich.escribirArchivo<Seguro>(rutaArchivo, obtenerTodos())
     }
 
     override fun cargarSeguros(mapa: Map<String, (List<String>) -> Seguro>): Boolean {

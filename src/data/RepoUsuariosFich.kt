@@ -13,7 +13,7 @@ class RepoUsuariosFich(private val rutaArchivo: String,
         if (!super.agregar(usuario)) {
             return false
         }
-        return utilFicheros.agregarLinea(rutaArchivo, usuario.serializar())
+        return fich.agregarLinea(rutaArchivo, usuario.serializar())
     }
 
     override fun eliminar(usuario: Usuario): Boolean {

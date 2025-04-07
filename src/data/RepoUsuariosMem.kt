@@ -32,7 +32,7 @@ open class RepoUsuariosMem : IRepoUsuarios {
     }
 
     override fun obtener(perfil: Perfil): List<Usuario> {
-        return usuarios.filter { it.perfil == perfil }
+        return usuarios.filter { it.perfil == perfil }.toList()
     }
 
     override fun cambiarClave(usuario: Usuario, nuevaClave: String): Boolean {

@@ -1,9 +1,12 @@
 package utils
 
+import model.IExportable
 import model.Usuario
 
 interface IUtilFicheros {
-    abstract fun leerArchivo(rutaArchivo: String): Any
-    abstract fun escribirArchivo(rutaArchivo: String, filter: List<Usuario>): Boolean
-    abstract fun existeFichero(rutaArchivo: String): Boolean
+    fun leerArchivo(ruta: String): List<String>
+    fun agregarLinea(ruta: String, linea: String): Boolean
+    fun <T: IExportable> escribirArchivo(ruta: String, elementos: List<T>): Boolean
+    fun existeFichero(ruta: String): Boolean
+    fun existeDirectorio(ruta: String): Boolean
 }
